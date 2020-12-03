@@ -87,8 +87,8 @@ insert into tbNhanVien values('QL002', N'Nguyễn Văn C', N'Nam', N'9 Trần Ph
 insert into tbNhanVien values('KO002', N'Nguyễn Thị D', N'Nữ', N'90 Trần Phú', '0123456786', '5/10/1990', '123456')
 insert into tbNhanVien values('KO001', N'Nguyễn Thị Dược', N'Nữ', N'90 Trần Phú', '0123456786', '5/10/1990', '123456')
 
-insert into tbSanPham values('SP001', N'Cà phê phin', N'Ly', 100, '12/12/2019', '01/05/2020')
-insert into tbSanPham values('SP002', N'Trà chanh', N'Ly', 100, '12/10/2019', '01/12/2020')
-insert into tbSanPham values('SP003', N'Kem', N'Cây', 200, '11/11/2019', '01/15/2020')
-insert into tbSanPham values('SP004', N'Sandwich', N'Cái', 40, '06/06/2020', '06/24/2020')
-insert into tbSanPham values('SP005', N'Bánh bao', N'Cái', 30, '09/10/2020', '09/11/2020')
+insert into tbSanPham values('SP001', N'Cà phê phin', N'Ly', 100, 20000, '12/12/2019', '01/05/2020')
+insert into tbSanPham values('SP002', N'Trà chanh', N'Ly', 100, 15000, '12/10/2019', '01/12/2020')
+insert into tbSanPham values('SP003', N'Kem', N'Cây', 200, 10000, '11/11/2019', '01/15/2020')
+insert into tbSanPham values('SP004', N'Sandwich', N'Cái', 30000, 40, '06/06/2020', '06/24/2020')
+insert into tbSanPham values('SP005', N'Bánh bao', N'Cái', 20000, 30, '09/10/2020', '09/11/2020')
