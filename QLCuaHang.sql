@@ -25,8 +25,9 @@ create table tbSanPham(
 	TenSP nvarchar(50) not null,
 	DonViTinh nvarchar(50),
 	SoLuong int,
+	Gia int not null,
 	NgayNhap date,
-	NgayHetHan date
+	NgayHetHan date,
 )
 go
 create table tbHoaDon(
