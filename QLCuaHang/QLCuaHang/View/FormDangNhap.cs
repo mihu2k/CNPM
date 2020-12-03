@@ -49,5 +49,12 @@ namespace QLCuaHang
                 MessageBox.Show("Đăng nhập thất bại!", "Xin lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void FormDangNhap_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) {
+                btnDangNhap.PerformClick();
+            }
+        }
     }
 }

@@ -52,6 +52,12 @@ namespace QLCuaHang.View
             Application.Exit();
         }
 
+        private void mnuKhachHang_Click(object sender, EventArgs e)
+        {
+            FormQLKhachHang frmKhachHang = new FormQLKhachHang();
+            frmKhachHang.ShowDialog();
+        }
+
         private void mnuTimKiem_Click(object sender, EventArgs e)
         {
             

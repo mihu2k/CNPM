@@ -10,3 +10,4 @@ C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\bin\Debug\QLCuaHang.pdb
 C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.exe
 C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.pdb
 C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.csprojAssemblyReference.cache
+C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.View.FormQLKhachHang.resources

@@ -34,11 +34,12 @@ namespace QLCuaHang.View
 
         public void LoadData()
         {
-            string sql = "select MaNV, TenNhanVien, GioiTinh, DiaChi, SDT, NgaySinh from tbNhanVien";
+            string sql = "select MaNV, TenNhanVien, GioiTinh, DiaChi, SDT, NgaySinh, MatKhau from tbNhanVien";
             tblNhanVien = ConnectToSQL.GetData(sql);
             dgvNhanVien.DataSource = tblNhanVien;
             dgvNhanVien.AllowUserToAddRows = false;
             dgvNhanVien.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvNhanVien.Columns["MatKhau"].Visible = false;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -71,6 +72,7 @@ namespace QLCuaHang.View
             txtDiaChi.Text = dgvNhanVien.CurrentRow.Cells["DiaChi"].Value.ToString();
             txtDienThoai.Text = dgvNhanVien.CurrentRow.Cells["SDT"].Value.ToString();
             dtmNgaySinh.Text = dgvNhanVien.CurrentRow.Cells["NgaySinh"].Value.ToString();
+            txtMatKhauNV.Text = dgvNhanVien.CurrentRow.Cells["MatKhau"].Value.ToString();
 
             if (dgvNhanVien.CurrentRow.Cells["GioiTinh"].Value.ToString() == "Nam") {
                 chkGioiTinh.Checked = true;
@@ -78,7 +80,7 @@ namespace QLCuaHang.View
                 chkGioiTinh.Checked = false;
             }
 
-            // Kích hoạt nút xóa
+            // Kích hoạt nút xóa, hủy, sửa
             btnXoa.Enabled = true;
             btnHuy.Enabled = true;
             btnSua.Enabled = true;
@@ -105,6 +107,7 @@ namespace QLCuaHang.View
             chkGioiTinh.Checked = false;
             txtDiaChi.Text = "";
             txtDienThoai.Text = "";
+            txtMatKhauNV.Text = "";
             dtmNgaySinh.Value = DateTime.Now.Date;
         }
 
@@ -137,6 +140,12 @@ namespace QLCuaHang.View
                 return;
             }
 
+            if (txtMatKhauNV.Text.Trim() == "") {
+                MessageBox.Show("Bạn chưa điền mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhauNV.Focus();
+                return;
+            }
+
             if (chkGioiTinh.Checked == true) {
                 gender = "Nam";
             } else {
@@ -154,7 +163,7 @@ namespace QLCuaHang.View
             }
 
             // Lưu thông tin nhân viên vừa tạo
-            sql = "insert into tbNhanVien values('"+txtMaNhanVien.Text.Trim()+"', N'"+txtTenNhanVien.Text.Trim()+"', N'"+gender+"', N'"+txtDiaChi.Text.Trim()+"', '"+txtDienThoai.Text.Trim()+ "', '" + dtmNgaySinh.Value + "', '')";
+            sql = "insert into tbNhanVien values('"+txtMaNhanVien.Text.Trim()+"', N'"+txtTenNhanVien.Text.Trim()+"', N'"+gender+"', N'"+txtDiaChi.Text.Trim()+"', '"+txtDienThoai.Text.Trim()+ "', '" + dtmNgaySinh.Value + "', '" +txtMatKhauNV.Text.Trim()+ "')";
             ConnectToSQL.RunSQL(sql);
             LoadData();
             ClearValues();
@@ -207,13 +216,20 @@ namespace QLCuaHang.View
                 gender = "Nữ";
             }
 
+            if (txtMatKhauNV.Text.Trim() == "") {
+                MessageBox.Show("Bạn chưa điền mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhauNV.Focus();
+                return;
+            }
+
             // Update thông tin nhân viên
             sql = "update tbNhanVien set TenNhanVien = N'" + txtTenNhanVien.Text.Trim() + "', " +
                                         "GioiTinh = N'" + gender + "', " +
                                         "DiaChi = N'" + txtDiaChi.Text.Trim() + "', " +
-                                        "SDT = N'" + txtDienThoai.Text.Trim() + "', " +
-                                        "NgaySinh = N'" + dtmNgaySinh.Value + "'" +
-                                        "where MaNV = N'" + txtMaNhanVien.Text.Trim() + "'";
+                                        "SDT = '" + txtDienThoai.Text.Trim() + "', " +
+                                        "NgaySinh = '" + dtmNgaySinh.Value + "', " +
+                                        "MatKhau = '" + txtMatKhauNV.Text.Trim() + "'" +
+                                        "where MaNV = '" + txtMaNhanVien.Text.Trim() + "'";
             ConnectToSQL.RunSQL(sql);
             LoadData();
             ClearValues();
