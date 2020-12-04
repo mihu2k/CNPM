@@ -44,6 +44,10 @@ create table tbCTHD(
 	MaHD varchar(20) not null,
 	MaSP varchar(20) not null,
 	primary key(MaHD, MaSP),
+	TenSP nvarchar(50),
+	SoLuong int,
+	DonGia int,
+	GiamGia int,
 	foreign key (MaHD) references tbHoaDon(MaHD),
 	foreign key (MaSP) references tbSanPham(MaSP)
 )
