@@ -111,6 +111,7 @@
             this.mnuSanPham.Name = "mnuSanPham";
             this.mnuSanPham.Size = new System.Drawing.Size(224, 26);
             this.mnuSanPham.Text = "Sản phẩm";
+            this.mnuSanPham.Click += new System.EventHandler(this.mnuSanPham_Click);
             // 
             // mnuKhachHang
             // 

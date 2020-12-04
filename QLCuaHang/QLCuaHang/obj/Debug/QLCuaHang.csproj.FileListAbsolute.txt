@@ -11,3 +11,17 @@ C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.exe
 C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.pdb
 C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.csprojAssemblyReference.cache
 C:\Công nghệ phần mềm\Project\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.View.FormQLKhachHang.resources
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.csprojAssemblyReference.cache
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.exe
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.pdb
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\bin\Debug\QLCuaHang.exe.config
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\bin\Debug\QLCuaHang.exe
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\bin\Debug\QLCuaHang.pdb
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.FormDangNhap.resources
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.Properties.Resources.resources
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.View.FormMain.resources
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.View.FormNhanVien.resources
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.View.FormQLKhachHang.resources
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.View.FormSanPham.resources
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.csproj.GenerateResource.cache
+C:\Users\ADMIN\source\repos\CNPM-master\QLCuaHang\QLCuaHang\obj\Debug\QLCuaHang.csproj.CoreCompileInputs.cache

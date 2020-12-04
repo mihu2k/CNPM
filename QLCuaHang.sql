@@ -26,7 +26,7 @@ create table tbSanPham(
 	DonViTinh nvarchar(50),
 	SoLuong int,
 	Gia int not null,
-	NgayNhap date,
+	NgayNhap date default getdate(),
 	NgayHetHan date,
 )
 go
@@ -101,3 +101,43 @@ insert into tbSanPham values('SP007', N'Xúc xích', N'Cái', 100, 10000, '10/10
 insert into tbSanPham values('SP008', N'Milo', N'Ly', 100, 10000, '01/01/2020', '01/02/2020')
 insert into tbSanPham values('SP009', N'Froster', N'Ly', 100, 10000, '01/01/2020', '01/02/2020')
 insert into tbSanPham values('SP010', N'Trà đào', N'Ly', 80, 10000, '06/05/2020', '07/05/2020')
+
+CREATE FUNCTION [dbo].[GetUnsignString](@strInput NVARCHAR(4000)) 
+RETURNS NVARCHAR(4000)
+AS
+BEGIN     
+    IF @strInput IS NULL RETURN @strInput
+    IF @strInput = '' RETURN @strInput
+    DECLARE @RT NVARCHAR(4000)
+    DECLARE @SIGN_CHARS NCHAR(136)
+    DECLARE @UNSIGN_CHARS NCHAR (136)
+
+    SET @SIGN_CHARS       = N'ăâđêôơưàảãạáằẳẵặắầẩẫậấèẻẽẹéềểễệếìỉĩịíòỏõọóồổỗộốờởỡợớùủũụúừửữựứỳỷỹỵýĂÂĐÊÔƠƯÀẢÃẠÁẰẲẴẶẮẦẨẪẬẤÈẺẼẸÉỀỂỄỆẾÌỈĨỊÍÒỎÕỌÓỒỔỖỘỐỜỞỠỢỚÙỦŨỤÚỪỬỮỰỨỲỶỸỴÝ'+NCHAR(272)+ NCHAR(208)
+    SET @UNSIGN_CHARS = N'aadeoouaaaaaaaaaaaaaaaeeeeeeeeeeiiiiiooooooooooooooouuuuuuuuuuyyyyyAADEOOUAAAAAAAAAAAAAAAEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOUUUUUUUUUUYYYYYDD'
+
+    DECLARE @COUNTER int
+    DECLARE @COUNTER1 int
+    SET @COUNTER = 1
+ 
+    WHILE (@COUNTER <=LEN(@strInput))
+    BEGIN   
+      SET @COUNTER1 = 1
+      --Tim trong chuoi mau
+       WHILE (@COUNTER1 <=LEN(@SIGN_CHARS)+1)
+       BEGIN
+     IF UNICODE(SUBSTRING(@SIGN_CHARS, @COUNTER1,1)) = UNICODE(SUBSTRING(@strInput,@COUNTER ,1) )
+     BEGIN           
+          IF @COUNTER=1
+              SET @strInput = SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)-1)                   
+          ELSE
+              SET @strInput = SUBSTRING(@strInput, 1, @COUNTER-1) +SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)- @COUNTER)    
+              BREAK         
+               END
+             SET @COUNTER1 = @COUNTER1 +1
+       END
+      --Tim tiep
+       SET @COUNTER = @COUNTER +1
+    END
+    RETURN @strInput
+END
+GO
