@@ -17,7 +17,7 @@ namespace QLCuaHang.Model
         public static void Connect()
         {
             conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source = LAPTOP-OFQVM343\SQLEXPRESS01; Initial Catalog = QLCuaHangTienLoi;User Id=sa;Password=123456; Integrated Security = True";
+            conn.ConnectionString = @"Data Source = .\SQLEXPRESS; Initial Catalog = QLCuaHangTienLoi; Integrated Security = True";
 
             // Kiểm tra trạng thái
             if (conn.State != ConnectionState.Open) {

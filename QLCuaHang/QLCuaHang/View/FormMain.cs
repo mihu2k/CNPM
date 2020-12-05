@@ -70,6 +70,12 @@ namespace QLCuaHang.View
             frmTimKH.ShowDialog();
         }
 
+        private void mnuSanPham_Click(object sender, EventArgs e)
+        {
+            FormQLSanPham f = new FormQLSanPham();
+            f.ShowDialog();
+        }
+
         private void mnuFindHoaDon_Click(object sender, EventArgs e)
         {
             FormTimKiemHoaDon frmTimHD = new FormTimKiemHoaDon();

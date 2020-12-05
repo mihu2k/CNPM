@@ -12,42 +12,32 @@ using QLCuaHang.Model;
 
 namespace QLCuaHang.View
 {
-    public partial class FormSanPham : Form
+    public partial class FormQLSanPham : Form
     {
         private DataTable tblSanPham;
-        
+
         BindingSource menuList = new BindingSource();
 
         private string connectionSTR = @"Data Source = .\SQLEXPRESS; Initial Catalog = QLCuaHangTienLoi; Integrated Security = True";
-        public FormSanPham()
+        public FormQLSanPham()
         {
             InitializeComponent();
         }
-        private void FormSanPham_Load(object sender, EventArgs e)
+
+        private void FormQLSanPham_Load(object sender, EventArgs e)
         {
             ConnectToSQL.Connect();
             dtgvSanPham.DataSource = menuList;
             LoadData();
             // Dùng Data Binding để hiện dữ liệu trên cái textbox
             AddMenuBinding();
-
         }
-        
-
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
         #region events
         private void btnXemSP_Click(object sender, EventArgs e)
         {
             LoadData();
         }
+
         private void btnThemSP_Click(object sender, EventArgs e)
         {
             string id = txbIDSP.Text;
@@ -65,8 +55,8 @@ namespace QLCuaHang.View
             {
                 MessageBox.Show("Có lỗi khi thêm món");
             }
-
         }
+
         private void btnSuaSP_Click(object sender, EventArgs e)
         {
             string id = txbIDSP.Text;
@@ -85,6 +75,7 @@ namespace QLCuaHang.View
                 MessageBox.Show("Có lỗi khi sửa");
             }
         }
+
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
             string id = txbIDSP.Text;
@@ -99,13 +90,12 @@ namespace QLCuaHang.View
                 MessageBox.Show("Có lỗi khi xóa");
             }
         }
+
         private void btnTimSP_Click(object sender, EventArgs e)
         {
             SearchFoodByName(txbTimTenSP.Text);
         }
         #endregion
-
-
         #region methods
         public void SearchFoodByName(string name)
         {
@@ -133,7 +123,7 @@ namespace QLCuaHang.View
         }
         public int ExecuteNonQuery(string query, object[] parameter = null)
         {
-            
+
             int data = 0;
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
@@ -176,8 +166,9 @@ namespace QLCuaHang.View
             return result > 0;
         }
 
-        
+
         #endregion
 
+        
     }
 }

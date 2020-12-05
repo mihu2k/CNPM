@@ -52,6 +52,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\FormQLSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormQLSanPham.Designer.cs">
+      <DependentUpon>FormQLSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     <Compile Include="View\FormTimKiemKhachHang.Designer.cs">
       <DependentUpon>FormTimKiemKhachHang.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\FormQLSanPham.resx">
+      <DependentUpon>FormQLSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>

@@ -102,20 +102,21 @@
             // mnuNhanVien
             // 
             this.mnuNhanVien.Name = "mnuNhanVien";
-            this.mnuNhanVien.Size = new System.Drawing.Size(169, 26);
+            this.mnuNhanVien.Size = new System.Drawing.Size(224, 26);
             this.mnuNhanVien.Text = "Nhân viên";
             this.mnuNhanVien.Click += new System.EventHandler(this.mnuNhanVien_Click);
             // 
             // mnuSanPham
             // 
             this.mnuSanPham.Name = "mnuSanPham";
-            this.mnuSanPham.Size = new System.Drawing.Size(169, 26);
+            this.mnuSanPham.Size = new System.Drawing.Size(224, 26);
             this.mnuSanPham.Text = "Sản phẩm";
+            this.mnuSanPham.Click += new System.EventHandler(this.mnuSanPham_Click);
             // 
             // mnuKhachHang
             // 
             this.mnuKhachHang.Name = "mnuKhachHang";
-            this.mnuKhachHang.Size = new System.Drawing.Size(169, 26);
+            this.mnuKhachHang.Size = new System.Drawing.Size(224, 26);
             this.mnuKhachHang.Text = "Khách hàng";
             this.mnuKhachHang.Click += new System.EventHandler(this.mnuKhachHang_Click);
             // 
@@ -130,7 +131,7 @@
             // mnuHoaDonBan
             // 
             this.mnuHoaDonBan.Name = "mnuHoaDonBan";
-            this.mnuHoaDonBan.Size = new System.Drawing.Size(179, 26);
+            this.mnuHoaDonBan.Size = new System.Drawing.Size(224, 26);
             this.mnuHoaDonBan.Text = "Hóa đơn bán";
             this.mnuHoaDonBan.Click += new System.EventHandler(this.mnuHoaDonBan_Click);
             // 
@@ -147,20 +148,20 @@
             // mnuFindHoaDon
             // 
             this.mnuFindHoaDon.Name = "mnuFindHoaDon";
-            this.mnuFindHoaDon.Size = new System.Drawing.Size(224, 26);
+            this.mnuFindHoaDon.Size = new System.Drawing.Size(169, 26);
             this.mnuFindHoaDon.Text = "Hóa đơn";
             this.mnuFindHoaDon.Click += new System.EventHandler(this.mnuFindHoaDon_Click);
             // 
             // mnuFindSanPham
             // 
             this.mnuFindSanPham.Name = "mnuFindSanPham";
-            this.mnuFindSanPham.Size = new System.Drawing.Size(224, 26);
+            this.mnuFindSanPham.Size = new System.Drawing.Size(169, 26);
             this.mnuFindSanPham.Text = "Sản phẩm";
             // 
             // mnuFindKhachHang
             // 
             this.mnuFindKhachHang.Name = "mnuFindKhachHang";
-            this.mnuFindKhachHang.Size = new System.Drawing.Size(224, 26);
+            this.mnuFindKhachHang.Size = new System.Drawing.Size(169, 26);
             this.mnuFindKhachHang.Text = "Khách hàng";
             this.mnuFindKhachHang.Click += new System.EventHandler(this.mnuFindKhachHang_Click);
             // 
