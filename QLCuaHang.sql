@@ -1,4 +1,4 @@
-﻿create database QLCuaHangTienLoi
+create database QLCuaHangTienLoi
 go
 use QLCuaHangTienLoi
 go
@@ -26,7 +26,7 @@ create table tbSanPham(
 	DonViTinh nvarchar(50),
 	SoLuong int,
 	Gia int not null,
-	NgayNhap date,
+	NgayNhap date default getdate(),
 	NgayHetHan date,
 )
 go
