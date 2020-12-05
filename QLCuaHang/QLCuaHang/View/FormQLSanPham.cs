@@ -99,7 +99,7 @@ namespace QLCuaHang.View
         #region methods
         public void SearchFoodByName(string name)
         {
-            string query = string.Format("SELECT * FROM tbSanPham WHERE dbo.GetUnsignString(TenSP) LIKE N'%' + dbo.GetUnsignString(N'{0}') +'%'", name);
+            string query = string.Format("SELECT * FROM tbSanPham WHERE dbo.convertToUnsign(TenSP) LIKE N'%' + dbo.GetUnsignString(N'{0}') +'%'", name);
             tblSanPham = ConnectToSQL.GetData(query);
             menuList.DataSource = tblSanPham;
             dtgvSanPham.AllowUserToAddRows = false;
