@@ -17,7 +17,7 @@ namespace QLCuaHang.Model
         public static void Connect()
         {
             conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source = .\SQLEXPRESS; Initial Catalog = QLCuaHangTienLoi; Integrated Security = True";
+            conn.ConnectionString = @"Data Source = LAPTOP-OFQVM343\SQLEXPRESS01; Initial Catalog = QLCuaHangTienLoi;User Id=sa;Password=123456; Integrated Security = True";
 
             // Kiểm tra trạng thái
             if (conn.State != ConnectionState.Open) {
@@ -76,6 +76,17 @@ namespace QLCuaHang.Model
             } else {
                 return false;
             }
+        }
+        public static string GetFieldValues(string sql)
+        {
+            string ma = "";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader rea;
+            rea = cmd.ExecuteReader();
+            while (rea.Read())
+                ma = rea.GetValue(0).ToString();
+            rea.Close();
+            return ma;
         }
     }
 }

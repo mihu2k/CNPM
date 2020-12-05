@@ -58,15 +58,21 @@ namespace QLCuaHang.View
             frmKhachHang.ShowDialog();
         }
 
-        private void mnuSanPham_Click(object sender, EventArgs e)
+        private void mnuHoaDonBan_Click(object sender, EventArgs e)
         {
-            FormSanPham f = new FormSanPham();
-            f.ShowDialog();
+            FormTaoHoaDon frmHoaDon = new FormTaoHoaDon();
+            frmHoaDon.ShowDialog();
         }
 
-        private void mnuTimKiem_Click(object sender, EventArgs e)
+        private void mnuFindKhachHang_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void mnuFindHoaDon_Click(object sender, EventArgs e)
+        {
+            FormTimKiemHoaDon frmTimHD = new FormTimKiemHoaDon();
+            frmTimHD.ShowDialog();
         }
     }
 }

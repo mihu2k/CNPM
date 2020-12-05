@@ -1,4 +1,4 @@
-create database QLCuaHangTienLoi
+﻿create database QLCuaHangTienLoi
 go
 use QLCuaHangTienLoi
 go
@@ -26,7 +26,7 @@ create table tbSanPham(
 	DonViTinh nvarchar(50),
 	SoLuong int,
 	Gia int not null,
-	NgayNhap date default getdate(),
+	NgayNhap date,
 	NgayHetHan date,
 )
 go
@@ -35,7 +35,7 @@ create table tbHoaDon(
 	MaNV varchar(20) not null,
 	MaKH varchar(20) not null,
 	NgayLap date,
-	TongThanhTien float,
+	TongThanhTien float default 0,
 	foreign key (MaNV) references tbNhanVien(MaNV),
 	foreign key (MaKH) references tbKhachHang(MaKH)
 )
@@ -48,6 +48,7 @@ create table tbCTHD(
 	SoLuong int,
 	DonGia int,
 	GiamGia int,
+	TongTien int,
 	foreign key (MaHD) references tbHoaDon(MaHD),
 	foreign key (MaSP) references tbSanPham(MaSP)
 )
@@ -77,8 +78,6 @@ create table tbCTDDH(
 	foreign key (MaDDH) references tbDonDatHang(MaDDH)
 )
 
-
-
 insert into tbKhachHang values('KH001', N'Trương Minh Quang', '0933244123', N'200 Lê Văn Lương', '366244123')
 insert into tbKhachHang values('KH002', N'Trương Minh Hưng', '0334066112', N'19 Lê Hồng Phong', '388573957')
 insert into tbKhachHang values('KH003', N'Nguyễn Văn Đạt', '0856376476', N'26 CMT8', '288538673')
@@ -102,42 +101,17 @@ insert into tbSanPham values('SP008', N'Milo', N'Ly', 100, 10000, '01/01/2020', 
 insert into tbSanPham values('SP009', N'Froster', N'Ly', 100, 10000, '01/01/2020', '01/02/2020')
 insert into tbSanPham values('SP010', N'Trà đào', N'Ly', 80, 10000, '06/05/2020', '07/05/2020')
 
-CREATE FUNCTION [dbo].[GetUnsignString](@strInput NVARCHAR(4000)) 
-RETURNS NVARCHAR(4000)
-AS
-BEGIN     
-    IF @strInput IS NULL RETURN @strInput
-    IF @strInput = '' RETURN @strInput
-    DECLARE @RT NVARCHAR(4000)
-    DECLARE @SIGN_CHARS NCHAR(136)
-    DECLARE @UNSIGN_CHARS NCHAR (136)
+insert into tbKhachHang values('KH000', N'User Name', null, null, 'Không')
+insert into tbHoaDon values('HD001','TN001','KH000','12/13/2019',35000)
+insert into tbHoaDon values('HD002','TN001','KH001','12/13/2019',50000)
+insert into tbHoaDon values('HD003','TN002','KH000','12/13/2019',30000)
 
-    SET @SIGN_CHARS       = N'ăâđêôơưàảãạáằẳẵặắầẩẫậấèẻẽẹéềểễệếìỉĩịíòỏõọóồổỗộốờởỡợớùủũụúừửữựứỳỷỹỵýĂÂĐÊÔƠƯÀẢÃẠÁẰẲẴẶẮẦẨẪẬẤÈẺẼẸÉỀỂỄỆẾÌỈĨỊÍÒỎÕỌÓỒỔỖỘỐỜỞỠỢỚÙỦŨỤÚỪỬỮỰỨỲỶỸỴÝ'+NCHAR(272)+ NCHAR(208)
-    SET @UNSIGN_CHARS = N'aadeoouaaaaaaaaaaaaaaaeeeeeeeeeeiiiiiooooooooooooooouuuuuuuuuuyyyyyAADEOOUAAAAAAAAAAAAAAAEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOUUUUUUUUUUYYYYYDD'
+insert into tbCTHD values('HD001', 'SP001', N'Cà phê phin',1,20000,0,20000)
+insert into tbCTHD values('HD001', 'SP002', N'Trà chanh',1,15000,0,15000)
+insert into tbCTHD values('HD002', 'SP004', N'Sandwich',1,30000,0,30000)
+insert into tbCTHD values('HD002', 'SP005', N'Bánh Bao',1,20000,0,20000)
+insert into tbCTHD values('HD003', 'SP009', N'Cà phê phin',2,20000,0,20000)
+insert into tbCTHD values('HD003', 'SP010', N'Trà chanh',1,10000,0,10000)
+go
 
-    DECLARE @COUNTER int
-    DECLARE @COUNTER1 int
-    SET @COUNTER = 1
- 
-    WHILE (@COUNTER <=LEN(@strInput))
-    BEGIN   
-      SET @COUNTER1 = 1
-      --Tim trong chuoi mau
-       WHILE (@COUNTER1 <=LEN(@SIGN_CHARS)+1)
-       BEGIN
-     IF UNICODE(SUBSTRING(@SIGN_CHARS, @COUNTER1,1)) = UNICODE(SUBSTRING(@strInput,@COUNTER ,1) )
-     BEGIN           
-          IF @COUNTER=1
-              SET @strInput = SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)-1)                   
-          ELSE
-              SET @strInput = SUBSTRING(@strInput, 1, @COUNTER-1) +SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)- @COUNTER)    
-              BREAK         
-               END
-             SET @COUNTER1 = @COUNTER1 +1
-       END
-      --Tim tiep
-       SET @COUNTER = @COUNTER +1
-    END
-    RETURN @strInput
-END
-GO
+
