@@ -46,10 +46,10 @@ namespace QLCuaHang.View
             tbHD = ConnectToSQL.GetData(sql);
             if (tbHD.Rows.Count == 0)
             {
-                MessageBox.Show("Không có bản ghi thỏa mãn điều kiện!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không có dữ liệu thỏa mãn điều kiện!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-                MessageBox.Show("Có " + tbHD.Rows.Count + " bản ghi thỏa mãn điều kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Có " + tbHD.Rows.Count + " dữ liệu thỏa mãn điều kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             dtGVHoaDon.DataSource = tbHD;
             LoadDataGridView();
         }

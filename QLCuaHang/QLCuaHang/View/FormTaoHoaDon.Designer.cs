@@ -335,7 +335,6 @@
             this.dGVCTHD.RowTemplate.Height = 24;
             this.dGVCTHD.Size = new System.Drawing.Size(908, 170);
             this.dGVCTHD.TabIndex = 2;
-            this.dGVCTHD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVCTHD_CellContentClick);
             // 
             // panel3
             // 
@@ -371,6 +370,7 @@
             this.btnInHoaDon.TabIndex = 6;
             this.btnInHoaDon.Text = "In hóa đơn";
             this.btnInHoaDon.UseVisualStyleBackColor = true;
+            this.btnInHoaDon.Click += new System.EventHandler(this.btnInHoaDon_Click);
             // 
             // btnHuyHoaDon
             // 

@@ -37,17 +37,54 @@ namespace QLCuaHang.View
         {
             dtGVKhachHang.Columns[0].HeaderText = "Mã KH";
             dtGVKhachHang.Columns[1].HeaderText = "Tên Khách Hàng";
-            dtGVKhachHang.Columns[2].HeaderText = "Địa chỉ";
-            dtGVKhachHang.Columns[3].HeaderText = "Ngày sinh";
-            dtGVKhachHang.Columns[4].HeaderText = "CMND";
-            dtGVKhachHang.Columns[5].HeaderText = "SĐT";
+            dtGVKhachHang.Columns[2].HeaderText = "Số điện thoại";
+            dtGVKhachHang.Columns[3].HeaderText = "Địa chỉ";
+            dtGVKhachHang.Columns[4].HeaderText = "CNMD";
             dtGVKhachHang.Columns[0].Width = 50;
-            dtGVKhachHang.Columns[1].Width = 100;
+            dtGVKhachHang.Columns[1].Width = 150;
             dtGVKhachHang.Columns[2].Width = 100;
-            dtGVKhachHang.Columns[3].Width = 100;
-            dtGVKhachHang.Columns[4].Width = 150;
+            dtGVKhachHang.Columns[3].Width = 150;
+            dtGVKhachHang.Columns[4].Width = 100;
             dtGVKhachHang.AllowUserToAddRows = false;
             dtGVKhachHang.EditMode = DataGridViewEditMode.EditProgrammatically;
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string sql;
+            if ((txtMaKH.Text == "") && (txtTenKH.Text == "") &&
+               (txtSDT.Text == ""))
+            {
+                MessageBox.Show("Hãy nhập một điều kiện tìm kiếm!!!", "Yêu cầu ...", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            sql = "SELECT * FROM tbKhachHang WHERE 1=1";
+            if (txtMaKH.Text != "")
+                sql = sql + " AND MaKH Like N'%" + txtMaKH.Text + "%'";
+            if (txtTenKH.Text != "")
+                sql = sql + " AND TenKhachHang Like N'%" + txtTenKH.Text+ "%'";
+            if (txtSDT.Text != "")
+                sql = sql + " AND SDT Like N'%" + txtSDT.Text + "%'";
+            tbKH = ConnectToSQL.GetData(sql);
+            if (tbKH.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu thỏa mãn điều kiện!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Có " + tbKH.Rows.Count + " dữ liệu thỏa mãn điều kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            dtGVKhachHang.DataSource = tbKH;
+            LoadDataGridView();
+        }
+
+        private void btnTimLai_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+            dtGVKhachHang.DataSource = null;
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

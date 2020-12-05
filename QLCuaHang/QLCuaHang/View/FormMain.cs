@@ -66,7 +66,8 @@ namespace QLCuaHang.View
 
         private void mnuFindKhachHang_Click(object sender, EventArgs e)
         {
-
+            FormTimKiemKhachHang frmTimKH = new FormTimKiemKhachHang();
+            frmTimKH.ShowDialog();
         }
 
         private void mnuFindHoaDon_Click(object sender, EventArgs e)
